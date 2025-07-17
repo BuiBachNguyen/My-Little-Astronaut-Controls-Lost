@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RunLeftState : IState
@@ -13,17 +14,15 @@ public class RunLeftState : IState
     public void Enter()
     {
         if (_animatator == null || _playerController == null) return;
+        _playerController.SpeedX = 0;
+        _playerController.AccelerationX = 0.25f;
     }
 
     public void Execute()
     {
-        Debug.Log(this.GetType().ToString());
-        _playerController.IsClimbing = false;
-        _playerController.IsDead = false;
-        _playerController.AccelerationX = 0;
-        _playerController.AccelerationY = 0;
-        _playerController.SpeedX = -1;
-        _playerController.SpeedY = -1;
+        _playerController.SpeedX -= _playerController.AccelerationX;
+        _playerController.SpeedX = Math.Min(-Constraint.MAX_SPEED, _playerController.SpeedX);
+        Debug.Log(_playerController.SpeedX);
     }
 
     public void Exit()

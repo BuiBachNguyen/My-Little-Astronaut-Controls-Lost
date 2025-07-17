@@ -17,7 +17,6 @@ public class IdleState : IState
 
     public void Execute()
     {
-        Debug.Log(this.GetType().ToString());
         _playerController.IsClimbing = false;
         _playerController.IsDead = false;
         _playerController.AccelerationX = 0;

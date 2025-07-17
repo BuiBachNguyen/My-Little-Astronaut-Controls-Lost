@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     //Field for Var
     [SerializeField] bool readyForClimb;
+    [SerializeField] bool isUpStairs; //Upstarir will go down
     [SerializeField] bool isClimbing;
     [SerializeField] bool isDead;
     [SerializeField] float speedX;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     public StateManager State_Manager { get => _stateManager; }
     public bool ReadyForClimb { get => readyForClimb; set => readyForClimb = value; }
+    public bool IsUpStairs { get => isUpStairs; set => isUpStairs = value; }
     public bool IsClimbing { get => isClimbing; set => isClimbing = value; }
     public bool IsDead { get => isDead; set => isDead = value; }
     public float SpeedX { get => speedX; set => speedX = value; }
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         _collier = GetComponent<Collider2D>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -52,19 +54,28 @@ public class PlayerController : MonoBehaviour
         ButtonController.Instance.OnLeftButtonPressed += Left;
         ButtonController.Instance.OnRightButtonPressed += Right;
         ButtonController.Instance.OnJumpButtonPressed += Jump;
+
+        _stateManager.ChangeState(new IdleState(_animator, this));
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        cdJump += Time.deltaTime;
         Flip();
         UpdatePosition();
+        Debug.Log(_collier.isTrigger.ToString());
+
+        _animator.SetBool("isDead", IsDead);
+        _animator.SetBool("isClimbing", IsClimbing);
+        _animator.SetFloat("directionX", Math.Abs(SpeedX));
+        _animator.SetFloat("directionY", SpeedY);
     }
 
     private void UpdatePosition()
     {
         this.transform.position += new Vector3(speedX * Time.deltaTime, speedY * Time.deltaTime, 0);
-    }    
+    }
 
     private void Flip()
     {
@@ -84,10 +95,52 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag(Tag.Ground))
         {
+            if (_stateManager.IsCurrentState<FallState>())
+                _stateManager.ChangeState(new IdleState(_animator, this));
             jumppedTime = 0.0f;
+            cdJump = 0.0f;
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(Tag.Ladder))
+        {
+            Vector2 stairPos = collision.transform.position;
+            Vector2 playerPos = transform.position;
+
+            if (readyForClimb == false)
+            {
+                if (playerPos.y < stairPos.y - 0.1f)
+                {
+                    isUpStairs = false;
+                }
+                else
+                {
+                    isUpStairs = true;
+                }
+            }
+            if(readyForClimb == false)
+            {
+                if(playerPos.x - stairPos.x <= 0.5f)
+                {
+                    readyForClimb = true;
+                }    
+            }    
+        }
+        else if(collision.gameObject.CompareTag(Tag.Ground))
+        {
+            Debug.Log("set ?");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(Tag.Ladder))
+        {
+            readyForClimb = false;
+        }    
     }
 
     //Fuct Out to ex
@@ -95,7 +148,10 @@ public class PlayerController : MonoBehaviour
     {
         if (value == true && readyForClimb)
         {
-            //_stateManager.ChangeState(new IdleState(_animator, this));
+            if (!isUpStairs)
+                _stateManager.ChangeState(new ClimbUpState(_animator, this));
+            else
+                _stateManager.ChangeState(new ClimbDownState(_animator, this));
         }
         else
         {
@@ -130,6 +186,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value == true)
         {
+            cdJump = 0f;
             _stateManager.ChangeState(new JumpState(_animator, this));
         }
         else

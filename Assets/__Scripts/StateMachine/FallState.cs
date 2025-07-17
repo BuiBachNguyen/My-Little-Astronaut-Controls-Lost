@@ -13,17 +13,14 @@ public class FallState : IState
     public void Enter()
     {
         if (_animatator == null || _playerController == null) return;
+        _playerController.SpeedY = 0.0f;
     }
 
     public void Execute()
     {
-        Debug.Log(this.GetType().ToString());
-        _playerController.IsClimbing = false;
-        _playerController.IsDead = false;
-        _playerController.AccelerationX = 0;
-        _playerController.AccelerationY = 0;
-        _playerController.SpeedX = 0;
-        _playerController.SpeedY = -2;
+        _playerController.AccelerationY = 0.15f;
+        _playerController.SpeedY -=_playerController.AccelerationY;
+        _playerController.SpeedY =Mathf.Min(-Constraint.MAX_FALLING, _playerController.SpeedY);
     }
 
     public void Exit()

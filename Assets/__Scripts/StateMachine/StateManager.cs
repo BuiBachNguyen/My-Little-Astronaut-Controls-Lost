@@ -5,6 +5,10 @@ public class StateManager : MonoBehaviour
 {
 
     [SerializeField] IState _currentState;
+
+    public IState CurrentState
+    { get => _currentState; set => _currentState = value; }
+
     void Update()
     {
         if (_currentState != null)
@@ -26,5 +30,10 @@ public class StateManager : MonoBehaviour
     public IState GetCurrentState()
     {
         return _currentState;
+    }
+
+    public bool IsCurrentState<T>() where T : IState
+    {
+        return _currentState is T;
     }
 }

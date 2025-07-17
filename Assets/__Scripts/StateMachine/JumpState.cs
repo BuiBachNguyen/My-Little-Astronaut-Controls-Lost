@@ -13,28 +13,34 @@ public class JumpState : IState, ISelfChange
     public void Enter()
     {
         if (_animatator == null || _playerController == null) return;
+        //if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME) return;
+
+        _playerController.AccelerationY = 0.15f;
+        _playerController.SpeedY = 1.5F;
+        _playerController.JumppedTime = 0;
+        _playerController.CdJump = Constraint.MAX_JUMP_TIME;
+        // Jump Eff
+        // _playerController.PlayJumpEffect();
     }
 
     public void Execute()
     {
-        Debug.Log(this.GetType().ToString());
-        _playerController.IsClimbing = false;
-        _playerController.IsDead = false;
-        _playerController.AccelerationX = 0;
-        _playerController.AccelerationY = 0;
-        _playerController.SpeedX = 0;
-        _playerController.SpeedY = 2;
+        _playerController.SpeedY += _playerController.AccelerationY;
+        _playerController.SpeedY = Mathf.Max(_playerController.SpeedY, Constraint.MAX_JUMP_SPEED);
+
         _playerController.JumppedTime += Time.deltaTime;
 
-        if (_playerController.JumppedTime >= 1.25f)
+        if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME)
         {
             SelfChange(new FallState(_animatator, _playerController));
-        }    
+        }
     }
 
     public void Exit()
     {
         if (_animatator == null || _playerController == null) return;
+        _playerController.JumppedTime = Constraint.MAX_JUMP_TIME;
+
     }
 
     public void SelfChange(IState state)
