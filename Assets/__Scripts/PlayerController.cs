@@ -20,9 +20,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speedX;
     [SerializeField] float accelerationX;
     [SerializeField] float speedY;
-    [SerializeField] float accelerationY;
+    //[SerializeField] float accelerationY;
     [SerializeField] float cdJump;
-    [SerializeField] float jumppedTime;
+    [SerializeField] bool isGrounded;
 
     #region GET-SET
 
@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour
     public float SpeedX { get => speedX; set => speedX = value; }
     public float AccelerationX { get => accelerationX; set => accelerationX = value; }
     public float SpeedY { get => speedY; set => speedY = value; }
-    public float AccelerationY { get => accelerationY; set => accelerationY = value; }
+    //public float AccelerationY { get => accelerationY; set => accelerationY = value; }
+    public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
     public float CdJump { get => cdJump; set => cdJump = value; }
-    public float JumppedTime { get => jumppedTime; set => jumppedTime = value; }
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("isDead", IsDead);
         _animator.SetBool("isClimbing", IsClimbing);
         _animator.SetFloat("directionX", Math.Abs(SpeedX));
-        _animator.SetFloat("directionY", SpeedY);
+        _animator.SetFloat("directionY", _rigidbody.linearVelocityY);
     }
 
     private void UpdatePosition()
@@ -97,11 +97,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Tag.Ground))
         {
-            if (_stateManager.IsCurrentState<FallState>())
-                _stateManager.ChangeState(new IdleState(_animator, this));
-            jumppedTime = 0.0f;
-            cdJump = 0.0f;
+            IsGrounded = true;
         }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag(Tag.Ground))
+        {
+            IsGrounded = false;
+        }    
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -122,15 +126,15 @@ public class PlayerController : MonoBehaviour
                     isUpStairs = true;
                 }
             }
-            if(readyForClimb == false)
+            if (readyForClimb == false)
             {
-                if(playerPos.x - stairPos.x <= 0.5f)
+                if (playerPos.x - stairPos.x <= 0.5f)
                 {
                     readyForClimb = true;
-                }    
-            }    
+                }
+            }
         }
-        else if(collision.gameObject.CompareTag(Tag.Ground))
+        else if (collision.gameObject.CompareTag(Tag.Ground))
         {
             Debug.Log("set ?");
         }
@@ -140,7 +144,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag(Tag.Ladder))
         {
             readyForClimb = false;
-        }    
+        }
     }
 
     //Fuct Out to ex
@@ -184,9 +188,8 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(bool value)
     {
-        if (value == true)
+        if (value == true && isGrounded && !isClimbing)
         {
-            cdJump = 0f;
             _stateManager.ChangeState(new JumpState(_animator, this));
         }
         else

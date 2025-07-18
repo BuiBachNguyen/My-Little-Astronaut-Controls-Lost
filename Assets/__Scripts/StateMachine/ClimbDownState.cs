@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class ClimbDownState : IState, ISelfChange
 {
-    Animator _animatator;
+    Animator _animator;
     PlayerController _playerController;
 
     public ClimbDownState(Animator animatator, PlayerController playerController)
     {
-        this._animatator = animatator;
+        this._animator = animatator;
         _playerController = playerController;
     }
     public void Enter()
     {
-        if (_animatator == null || _playerController == null) return;
+        if (_animator == null || _playerController == null) return;
         Rigidbody2D rig = _playerController.GetComponent<Rigidbody2D>();
         rig.gravityScale = 0f;
     }
@@ -26,15 +26,13 @@ public class ClimbDownState : IState, ISelfChange
         if (!_playerController.ReadyForClimb)
         {
             _col.isTrigger = false;
-            SelfChange(new IdleState(_animatator, _playerController));
+            SelfChange(new IdleState(_animator, _playerController));
         }
     }
 
     public void Exit()
     {
-        if (_animatator == null || _playerController == null) return;
-        //Collider2D _col = _playerController.GetComponent<Collider2D>();
-        //_col.isTrigger = false;
+        if (_animator == null || _playerController == null) return;
         Rigidbody2D rig = _playerController.GetComponent<Rigidbody2D>();
         rig.gravityScale = 2f;
         _playerController.SpeedY = 0;

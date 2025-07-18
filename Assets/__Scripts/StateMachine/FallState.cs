@@ -1,30 +1,44 @@
 using UnityEngine;
 
-public class FallState : IState
+public class FallState : IState, ISelfChange
 {
-    Animator _animatator;
+    Animator _animator;
     PlayerController _playerController;
 
     public FallState(Animator animatator, PlayerController playerController)
     {
-        this._animatator = animatator;
+        this._animator = animatator;
         _playerController = playerController;
     }
     public void Enter()
     {
-        if (_animatator == null || _playerController == null) return;
+        if (_animator == null || _playerController == null) return;
         _playerController.SpeedY = 0.0f;
     }
 
     public void Execute()
     {
-        _playerController.AccelerationY = 0.15f;
-        _playerController.SpeedY -=_playerController.AccelerationY;
-        _playerController.SpeedY =Mathf.Min(-Constraint.MAX_FALLING, _playerController.SpeedY);
+        if (_playerController == null) return;
+
+        if (_playerController.IsGrounded)
+        {
+            SelfChange(new IdleState(_animator, _playerController));
+        }
     }
+
+    public void SelfChange(IState state)
+    {
+        StateManager _stateManager = _playerController.State_Manager;
+        if (_stateManager != null)
+        {
+            _stateManager.ChangeState(state);
+        }
+
+    }
+
 
     public void Exit()
     {
-        if (_animatator == null || _playerController == null) return;
+        if (_animator == null || _playerController == null) return;
     }
 }

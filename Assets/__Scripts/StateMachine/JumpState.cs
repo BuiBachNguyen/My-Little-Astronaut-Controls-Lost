@@ -2,47 +2,38 @@ using UnityEngine;
 
 public class JumpState : IState, ISelfChange
 {
-    Animator _animatator;
+    Animator _animator;
     PlayerController _playerController;
 
     public JumpState(Animator animatator, PlayerController playerController)
     {
-        this._animatator = animatator;
+        this._animator = animatator;
         _playerController = playerController;
     }
     public void Enter()
     {
-        if (_animatator == null || _playerController == null) return;
-        //if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME) return;
-
-        //_playerController.AccelerationY = 0.15f;
-        //_playerController.SpeedY = 1.5F;
-        //_playerController.JumppedTime = 0;
-        //_playerController.CdJump = Constraint.MAX_JUMP_TIME;
-        // Jump Eff
-        // _playerController.PlayJumpEffect();
-
+        if (_animator == null || _playerController == null) return;
         Rigidbody2D col = _playerController.GetComponent<Rigidbody2D>();
-        col.AddForce(Vector2.up * 2.5f, ForceMode2D.Impulse);
+        col.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
     }
 
     public void Execute()
     {
-        //_playerController.SpeedY += _playerController.AccelerationY;
-        //_playerController.SpeedY = Mathf.Max(_playerController.SpeedY, Constraint.MAX_JUMP_SPEED);
+        if (_playerController == null) return;
 
-        //_playerController.JumppedTime += Time.deltaTime;
+        Rigidbody2D rb = _playerController.GetComponent<Rigidbody2D>();
+        if (rb == null) return;
 
-        //if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME)
-        //{
-        //    SelfChange(new FallState(_animatator, _playerController));
-        //}
+        if (rb.linearVelocityY <= 0f)
+        {
+            SelfChange(new FallState(_animator, _playerController));
+        }
     }
+
 
     public void Exit()
     {
-        if (_animatator == null || _playerController == null) return;
-        _playerController.JumppedTime = Constraint.MAX_JUMP_TIME;
+        if (_animator == null || _playerController == null) return;
 
     }
 

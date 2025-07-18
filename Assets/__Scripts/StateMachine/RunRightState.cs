@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class RunRightState : IState
 {
-    Animator _animatator;
+    Animator _animator;
     PlayerController _playerController;
 
     public RunRightState(Animator animatator, PlayerController playerController)
     {
-        this._animatator = animatator;
+        this._animator = animatator;
         _playerController = playerController;
     }
     public void Enter()
     {
-        if (_animatator == null || _playerController == null) return;
+        if (_animator == null || _playerController == null) return;
         _playerController.SpeedX = 0;
         _playerController.AccelerationX = 0.15f;
     }
@@ -26,6 +26,6 @@ public class RunRightState : IState
 
     public void Exit()
     {
-        if (_animatator == null || _playerController == null) return;
+        if (_animator == null || _playerController == null) return;
     }
 }
