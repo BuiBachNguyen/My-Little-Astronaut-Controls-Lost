@@ -18,11 +18,9 @@ public class IdleState : IState
     public void Execute()
     {
         _playerController.IsClimbing = false;
-        _playerController.IsDead = false;
         _playerController.AccelerationX = 0;
         _playerController.AccelerationY = 0;
         _playerController.SpeedX = 0;
-        _playerController.SpeedY = -1;
     }
 
     public void Exit()

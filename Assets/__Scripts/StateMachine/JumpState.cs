@@ -15,25 +15,28 @@ public class JumpState : IState, ISelfChange
         if (_animatator == null || _playerController == null) return;
         //if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME) return;
 
-        _playerController.AccelerationY = 0.15f;
-        _playerController.SpeedY = 1.5F;
-        _playerController.JumppedTime = 0;
-        _playerController.CdJump = Constraint.MAX_JUMP_TIME;
+        //_playerController.AccelerationY = 0.15f;
+        //_playerController.SpeedY = 1.5F;
+        //_playerController.JumppedTime = 0;
+        //_playerController.CdJump = Constraint.MAX_JUMP_TIME;
         // Jump Eff
         // _playerController.PlayJumpEffect();
+
+        Rigidbody2D col = _playerController.GetComponent<Rigidbody2D>();
+        col.AddForce(Vector2.up * 2.5f, ForceMode2D.Impulse);
     }
 
     public void Execute()
     {
-        _playerController.SpeedY += _playerController.AccelerationY;
-        _playerController.SpeedY = Mathf.Max(_playerController.SpeedY, Constraint.MAX_JUMP_SPEED);
+        //_playerController.SpeedY += _playerController.AccelerationY;
+        //_playerController.SpeedY = Mathf.Max(_playerController.SpeedY, Constraint.MAX_JUMP_SPEED);
 
-        _playerController.JumppedTime += Time.deltaTime;
+        //_playerController.JumppedTime += Time.deltaTime;
 
-        if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME)
-        {
-            SelfChange(new FallState(_animatator, _playerController));
-        }
+        //if (_playerController.JumppedTime >= Constraint.MAX_JUMP_TIME)
+        //{
+        //    SelfChange(new FallState(_animatator, _playerController));
+        //}
     }
 
     public void Exit()

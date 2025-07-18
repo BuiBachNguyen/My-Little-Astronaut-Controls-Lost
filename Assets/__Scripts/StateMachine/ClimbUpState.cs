@@ -13,6 +13,8 @@ public class ClimbUpState : IState, ISelfChange
     public void Enter()
     {
         if (_animatator == null || _playerController == null) return;
+        Rigidbody2D rig = _playerController.GetComponent<Rigidbody2D>();
+        rig.gravityScale = 0f;
     }
 
     public void Execute()
@@ -33,6 +35,9 @@ public class ClimbUpState : IState, ISelfChange
         if (_animatator == null || _playerController == null) return;
         //Collider2D _col = _playerController.GetComponent<Collider2D>();
         //_col.isTrigger = false;
+        Rigidbody2D rig = _playerController.GetComponent<Rigidbody2D>();
+        rig.gravityScale = 2f;
+        _playerController.SpeedY = 0;
     }
     public void SelfChange(IState state)
     {

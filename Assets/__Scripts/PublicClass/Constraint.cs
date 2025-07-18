@@ -8,10 +8,12 @@ public class Constraint
     public const float MAX_SPEED = 5.0f;
     public static float MAX_FALLING = 5f;
     public static float MAX_JUMP_SPEED = 5f;
+    public static float GRAVITY_SCALE = 2f;
 }
 
 public class Tag
 {
     public const string Ground = "Ground";
     public const string Ladder = "Ladder";
+    public const string Player = "Player";
 }
