@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
@@ -94,6 +94,13 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(Tag.Ground))
+        {
+            IsGrounded = true;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(Tag.Ground))
         {

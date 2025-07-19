@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Astro_Idle
+    m_Hash: 377652530
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Idle_1
+      m_Hash: 495347202
+      m_Sprite: {fileID: -4784303693153902740, guid: 3a657ee98044b0b4e8bae1a4d558b915, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -6511610701255145038, guid: f7ae176048d1f3e44aaec181e15de306, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Astro_Jump
+    m_Hash: 756364849
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Jump_1
+      m_Hash: 616803424
+      m_Sprite: {fileID: 8886885071965154576, guid: 063ffcb268a5922449f724e7a9616d02, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1368432470808120466, guid: 0a28a25302e74e3438cc7b5fe7d8fbe3, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Astro_Run
+    m_Hash: 209979697
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Run_1
+      m_Hash: 312844492
+      m_Sprite: {fileID: -4784303693153902740, guid: 3a657ee98044b0b4e8bae1a4d558b915, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -6511610701255145038, guid: f7ae176048d1f3e44aaec181e15de306, type: 3}
+    - m_Name: Astro_Run_2
+      m_Hash: 195883382
+      m_Sprite: {fileID: 8327456709618745999, guid: 7866cb845103da5448d67a35accf4d28, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -8455583299059481146, guid: b8dd6c2d6f3c8924e96f02ced8ea5d07, type: 3}
+    - m_Name: Astro_Run_3
+      m_Hash: 1017889248
+      m_Sprite: {fileID: -4100427204945458759, guid: 57e6fb277877c5941b0ae31395a1d0f3, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 1368432470808120466, guid: 0a28a25302e74e3438cc7b5fe7d8fbe3, type: 3}
+    - m_Name: Astro_Run_4
+      m_Hash: 584012867
+      m_Sprite: {fileID: 723976254158381003, guid: ed8affd77f8dcf54183dc919e09f9c3a, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -3407604588732083731, guid: 9959db4924ffcc842a8a39094d7f1b6b, type: 3}
+    - m_Name: Astro_Run_5
+      m_Hash: 365454549
+      m_Sprite: {fileID: 8327456709618745999, guid: 7866cb845103da5448d67a35accf4d28, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -8455583299059481146, guid: b8dd6c2d6f3c8924e96f02ced8ea5d07, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 5
+  - m_Name: Astro_Die
+    m_Hash: 629821990
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Die_1
+      m_Hash: 731890984
+      m_Sprite: {fileID: 5219039142662120950, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 5219039142662120950, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+    - m_Name: Astro_Die_2
+      m_Hash: 848729234
+      m_Sprite: {fileID: -2111070646326493834, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2111070646326493834, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+    - m_Name: Astro_Die_3
+      m_Hash: 93430788
+      m_Sprite: {fileID: 9028503172612264741, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 9028503172612264741, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+    - m_Name: Astro_Die_4
+      m_Hash: 469053863
+      m_Sprite: {fileID: 2939019908423974537, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 2939019908423974537, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+    - m_Name: Astro_Die_5
+      m_Hash: 754057521
+      m_Sprite: {fileID: -5053008137572551834, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -5053008137572551834, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+    - m_Name: Astro_Die_6
+      m_Hash: 905662603
+      m_Sprite: {fileID: -2943523822494753725, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -2943523822494753725, guid: 984cd1d05d3d8b346be8f53fed035050, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 0
+  - m_Name: Astro_Climb
+    m_Hash: 946422865
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Climb_1
+      m_Hash: 1060455083
+      m_Sprite: {fileID: -223974919251178019, guid: 2d389683fbb349941ab5c6e201aa5dab, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 675173079489649988, guid: 4a173aa376ac8e74693798e7ff8b2774, type: 3}
+    - m_Name: Astro_Climb_2
+      m_Hash: 641471249
+      m_Sprite: {fileID: -6962904600874008439, guid: ecb7c489ceea56a4c8ca3956fef8d2cf, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: -9115154413271813606, guid: 6d31b9a51f4ba48409ac512271c1c50e, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 2
+  - m_Name: Astro_Idle_Climb
+    m_Hash: 958377124
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Idle_Climb
+      m_Hash: 958377124
+      m_Sprite: {fileID: -223974919251178019, guid: 2d389683fbb349941ab5c6e201aa5dab, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 675173079489649988, guid: 4a173aa376ac8e74693798e7ff8b2774, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  - m_Name: Astro_Fall
+    m_Hash: 838266667
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Astro_Fall_1
+      m_Hash: 736190504
+      m_Sprite: {fileID: 2613670696456166852, guid: 215eb4414472db148b9d9a5474ff99e5, type: 3}
+      m_FromMain: 1
+      m_SpriteOverride: {fileID: 9135128133567363492, guid: b415f41c49d2cfe44b5f47d605f7ab7f, type: 3}
+    m_FromMain: 1
+    m_EntryOverrideCount: 1
+  m_PrimaryLibraryGUID: 28c5e1db88979f94ea2e94f2058bacaf
+  m_ModificationHash: 638885633525698976
+  m_Version: 1

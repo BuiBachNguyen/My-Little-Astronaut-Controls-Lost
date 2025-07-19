@@ -1,0 +1,21 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.U2D.Animation;
+
+[CreateAssetMenu(fileName = "DataGame", menuName = "Scriptable Objects/DataGame")]
+public class DataGame : ScriptableObject
+{
+    public int maxlevel = 1;
+    public int level = 1;
+    public bool isDead;
+    public int indexOfSkin = 0;
+    public float scaleOfSFX = 1;
+    //public float scaleOfLight = 1;
+    public List<SpriteLibraryAsset> _assets;
+
+    //private void Update()
+    //{
+
+    //}    
+}
