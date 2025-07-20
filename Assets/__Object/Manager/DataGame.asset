@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DataGame
   m_EditorClassIdentifier: 
   maxlevel: 1
-  level: 1
+  level: 0
   isDead: 0
   indexOfSkin: 1
   scaleOfSFX: 1

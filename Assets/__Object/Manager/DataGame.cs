@@ -7,15 +7,10 @@ using UnityEngine.U2D.Animation;
 public class DataGame : ScriptableObject
 {
     public int maxlevel = 1;
-    public int level = 1;
+    public int level = 0;
     public bool isDead;
     public int indexOfSkin = 0;
     public float scaleOfSFX = 1;
     //public float scaleOfLight = 1;
     public List<SpriteLibraryAsset> _assets;
-
-    //private void Update()
-    //{
-
-    //}    
 }
