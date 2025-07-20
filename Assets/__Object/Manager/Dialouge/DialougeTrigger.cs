@@ -9,7 +9,8 @@ public class DialougeTrigger : MonoBehaviour
     public Actor[] actors;
     private bool wasPlayed = false;
     //public Animator animator;
-    public int WaitTime;
+    [SerializeField] private float WaitTime = 1.5f;
+
     //
     public void StartDialogue()
     {

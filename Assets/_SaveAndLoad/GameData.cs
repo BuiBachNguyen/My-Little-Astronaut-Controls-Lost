@@ -8,6 +8,7 @@ public class GameData
     public int deathCounter;
     public int indexOfSkin;
     public List<SpriteLibraryAsset> _assets;
+    internal object _sprites;
 
     public GameData()
     {

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7fdaffa2f8a5caa48ad3398cabfaa0b9
+guid: 6f98b8939750a07489d4f07585b0401a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2576023137440582333
-    second: dialog_0
+      213: 3191487229801253599
+    second: Scientist_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dialog_0
+      name: Scientist_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 1624
-        height: 894
-      alignment: 9
-      pivot: {x: 0.5, y: 0.45}
-      border: {x: 763, y: 355, z: 685, w: 448}
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 345baa7da90204cd0800000000000000
-      internalID: -2576023137440582333
+      spriteID: fdacf7de9b07a4c20800000000000000
+      internalID: 3191487229801253599
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3bfbcb0e6dd88124e9f843ab9f014a08
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dialog_0: -2576023137440582333
+      Scientist_0: 3191487229801253599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

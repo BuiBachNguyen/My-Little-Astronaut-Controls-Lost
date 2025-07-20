@@ -15,8 +15,9 @@ public class DialougeManager : MonoBehaviour
     Message[] currentMessages;
     Actor[] currentActors;
     int activeMessage = 0;
-
     public bool isSkip;
+    [SerializeField] public DataGame gameData;
+
     void Start()
     {
         isSkip = false;
@@ -24,7 +25,6 @@ public class DialougeManager : MonoBehaviour
     }
     void Update()
     {
-
     }
 
     public void OpenDialogue(Message[] messages, Actor[] actors)
@@ -43,8 +43,14 @@ public class DialougeManager : MonoBehaviour
         messageText.text = messageToDisplay.message;
 
         Actor actorToDisplay = currentActors[messageToDisplay.actorID];
+
         actorName.text = actorToDisplay.name;
-        actorImage.sprite = actorToDisplay.sprite;
+        if (actorToDisplay.name == "Little Astro")
+        {
+            actorImage.sprite = (gameData._sprites)[gameData.indexOfSkin];
+        }
+        else 
+            actorImage.sprite = actorToDisplay.sprite;
 
         AnimateTextColor();
     }
@@ -59,6 +65,7 @@ public class DialougeManager : MonoBehaviour
         else
         {
             isSkip = true;
+            SkipDialogue();
         }
     }
     public void SkipDialogue()

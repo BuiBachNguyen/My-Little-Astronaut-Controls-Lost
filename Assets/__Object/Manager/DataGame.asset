@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: DataGame
   m_EditorClassIdentifier: 
   maxlevel: 1
-  level: 0
+  level: 1
   isDead: 0
-  indexOfSkin: 1
+  indexOfSkin: 2
   scaleOfSFX: 1
   _assets:
   - {fileID: 7108339969198208228, guid: 28c5e1db88979f94ea2e94f2058bacaf, type: 3}
   - {fileID: 7108339969198208228, guid: e4e41eef1a6ffb9419bafef0805ca6a7, type: 3}
   - {fileID: 7108339969198208228, guid: a0b20449670ff2a4c832e3b98edd2455, type: 3}
+  _sprites:
+  - {fileID: 8254571449526861975, guid: 3bbace6a0e1f29940a8a3184e18c84ae, type: 3}
+  - {fileID: -3816896651549730107, guid: 3bbace6a0e1f29940a8a3184e18c84ae, type: 3}
+  - {fileID: 8643378792194019154, guid: 3bbace6a0e1f29940a8a3184e18c84ae, type: 3}

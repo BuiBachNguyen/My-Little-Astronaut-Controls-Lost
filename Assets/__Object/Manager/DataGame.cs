@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "DataGame", menuName = "Scriptable Objects/DataGame")]
 public class DataGame : ScriptableObject
@@ -13,4 +14,5 @@ public class DataGame : ScriptableObject
     public float scaleOfSFX = 1;
     //public float scaleOfLight = 1;
     public List<SpriteLibraryAsset> _assets;
+    public List<Sprite> _sprites;
 }
