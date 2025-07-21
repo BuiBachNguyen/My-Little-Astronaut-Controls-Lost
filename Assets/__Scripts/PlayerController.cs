@@ -199,10 +199,6 @@ public class PlayerController : MonoBehaviour
         {
             _stateManager.ChangeState(new JumpState(_animator, this));
         }
-        else
-        {
-            _stateManager.ChangeState(new IdleState(_animator, this));
-        }
     }
 
 

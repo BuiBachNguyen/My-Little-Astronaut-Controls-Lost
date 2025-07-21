@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class JumpPad : MonoBehaviour
@@ -14,16 +15,16 @@ public class JumpPad : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag(Tag.Player))
+        if (collision.gameObject.CompareTag(Tag.Player))
         {
             Rigidbody2D col = collision.gameObject.GetComponent<Rigidbody2D>();
             col.AddForce(Vector2.up * 15.0f, ForceMode2D.Impulse);
             animator.SetBool("isActive", true);
-        }    
+        }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(Tag.Player))
         {
