@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Left(bool value)
     {
+        if (isClimbing == true) return;
         if (value == true)
         {
             _stateManager.ChangeState(new RunLeftState(_animator, this));
@@ -183,6 +184,7 @@ public class PlayerController : MonoBehaviour
 
     private void Right(bool value)
     {
+        if (isClimbing == true) return;
         if (value == true)
         {
             _stateManager.ChangeState(new RunRightState(_animator, this));
@@ -195,6 +197,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump(bool value)
     {
+        if (isClimbing == true) return;
         if (value == true && isGrounded && !isClimbing)
         {
             _stateManager.ChangeState(new JumpState(_animator, this));

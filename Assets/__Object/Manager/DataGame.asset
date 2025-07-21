@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: DataGame
   m_EditorClassIdentifier: 
   maxlevel: 1
-  level: 1
+  level: 0
   isDead: 0
-  indexOfSkin: 2
+  indexOfSkin: 1
   scaleOfSFX: 1
   _assets:
   - {fileID: 7108339969198208228, guid: 28c5e1db88979f94ea2e94f2058bacaf, type: 3}
