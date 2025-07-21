@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using System;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {

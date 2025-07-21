@@ -31,20 +31,20 @@ public class _SceneManager : MonoBehaviour
         SceneManager.LoadScene(_dataGame.level);
     }
 
-    void LoadSelectedScene(int level)
+    public void LoadSelectedScene(int level)
     {
         _dataGame.level = level - 1;
         if(level >= _dataGame.maxlevel) _dataGame.level = _dataGame.maxlevel;
         else if(level <= 0) _dataGame.level = 0;
         LoadOutEnable();
-    }    
-    void ReloadWhenDie()
+    }
+    public void ReloadWhenDie()
     {
         _dataGame.level -= 1;
         LoadOutEnable();
-    }    
+    }
 
-    void NextScene()
+    public void NextScene()
     {
         _dataGame.level += 1;
         LoadInEnable();
@@ -53,5 +53,9 @@ public class _SceneManager : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene("Select_Level");
+    }    
+    public void ExitButton()
+    {
+        Application.Quit();
     }    
 }

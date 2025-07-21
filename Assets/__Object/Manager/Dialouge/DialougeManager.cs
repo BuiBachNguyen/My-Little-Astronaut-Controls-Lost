@@ -1,8 +1,6 @@
 using TMPro;
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine.UI;
 
 public class DialougeManager : MonoBehaviour
