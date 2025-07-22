@@ -65,7 +65,7 @@ public class ButtonController : MonoBehaviour
 
     public void JumpButtonRelease()
     {
-        OnRightButtonPressed?.Invoke(false);
+        //OnRightButtonPressed?.Invoke(false);
     }
     #endregion
 }

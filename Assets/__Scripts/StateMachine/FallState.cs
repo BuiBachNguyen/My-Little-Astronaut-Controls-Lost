@@ -22,7 +22,12 @@ public class FallState : IState, ISelfChange
 
         if (_playerController.IsGrounded)
         {
-            SelfChange(new IdleState(_animator, _playerController));
+            if(_playerController.AccelerationX > 0.0f)
+                SelfChange(new RunRightState(_animator, _playerController));
+            else if (_playerController.AccelerationX < 0.0f)
+                SelfChange(new RunLeftState(_animator, _playerController));
+            else
+                SelfChange(new IdleState(_animator, _playerController));
         }
     }
 

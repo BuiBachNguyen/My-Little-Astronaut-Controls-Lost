@@ -13345,6 +13345,7 @@ MonoBehaviour:
   speedY: 0
   cdJump: 0
   isGrounded: 0
+  modifier: 1
 --- !u!50 &1908041085
 Rigidbody2D:
   serializedVersion: 5

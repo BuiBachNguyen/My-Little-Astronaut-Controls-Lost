@@ -49,6 +49,7 @@ public class TheTorch : MonoBehaviour
 
         light2D.intensity = targetIntensity;
         gameData.level += 1;
+        if (gameData.level >= 11) gameData.level = 0;
         LoadIn.SetActive(true);
     }
 }

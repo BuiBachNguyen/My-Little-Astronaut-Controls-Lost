@@ -14,7 +14,7 @@ public class JumpState : IState, ISelfChange
     {
         if (_animator == null || _playerController == null) return;
         Rigidbody2D col = _playerController.GetComponent<Rigidbody2D>();
-        col.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+        col.AddForce(Vector2.up * 5f * _playerController.Modifier, ForceMode2D.Impulse);
     }
 
     public void Execute()

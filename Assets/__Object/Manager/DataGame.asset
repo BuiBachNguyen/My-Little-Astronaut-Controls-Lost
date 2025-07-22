@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89897a84a20284fb429fa3550abfde, type: 3}
   m_Name: DataGame
   m_EditorClassIdentifier: 
-  maxlevel: 0
+  maxlevel: 100
   level: 0
   isDead: 0
   indexOfSkin: 1

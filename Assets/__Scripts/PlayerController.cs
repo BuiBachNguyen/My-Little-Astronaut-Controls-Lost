@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] float accelerationY;
     [SerializeField] float cdJump;
     [SerializeField] bool isGrounded;
+    [SerializeField] float modifier = 1; // add more Jump force
 
     #region GET-SET
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public bool IsGrounded { get => isGrounded; set => isGrounded = value; }
 
     public float CdJump { get => cdJump; set => cdJump = value; }
+    public float Modifier { get => modifier; set => modifier = value; }
     #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -58,7 +60,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        cdJump += Time.deltaTime;
         Flip();
         UpdatePosition();
         Debug.Log(_collier.isTrigger.ToString());
@@ -200,6 +201,4 @@ public class PlayerController : MonoBehaviour
             _stateManager.ChangeState(new JumpState(_animator, this));
         }
     }
-
-
 }

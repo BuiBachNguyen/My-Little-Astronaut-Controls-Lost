@@ -14,7 +14,6 @@ public class RunLeftState : IState
     public void Enter()
     {
         if (_animator == null || _playerController == null) return;
-        _playerController.SpeedX = 0;
         _playerController.AccelerationX = 0.15f;
     }
 
